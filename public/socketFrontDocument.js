@@ -1,4 +1,4 @@
-import { putchTextEdite } from "./document.js";
+import { putchTextEdite, alertAndRedirect } from "./document.js";
 
 const socket = io();
 
@@ -14,4 +14,12 @@ export function emitTextEdit(msg, roomSocket) {
 
 socket.on("textMessage", (msg) => {
   putchTextEdite(msg);
+});
+
+export function emitExcludeDocument(roomSocket) {
+  socket.emit("excludeDocument", roomSocket);
+}
+
+socket.on("exclude_interfaceDocument", (roomSocket) => {
+  alertAndRedirect(roomSocket);
 });

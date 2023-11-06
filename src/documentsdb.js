@@ -10,6 +10,13 @@ function findDocument(roomSocket) {
   });
 }
 
+function addDocumentDB(documentName) {
+  return documentCollection.insertOne({
+    name: documentName,
+    text: "",
+  });
+}
+
 function putDocument(roomSocket, text) {
   return documentCollection.updateOne(
     {
@@ -23,4 +30,16 @@ function putDocument(roomSocket, text) {
   );
 }
 
-export { findDocument, putDocument, requestDocument };
+function excludeDocument(roomSocket) {
+  return documentCollection.deleteOne({
+    name: roomSocket,
+  });
+}
+
+export {
+  addDocumentDB,
+  findDocument,
+  putDocument,
+  requestDocument,
+  excludeDocument,
+};
