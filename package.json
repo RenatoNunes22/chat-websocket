@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/socketBack.js"
+    "dev": "nodemon service/socketBack.js"
   },
   "keywords": [],
   "author": "",
