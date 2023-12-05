@@ -1,4 +1,9 @@
 import { addNewDocument } from "./socket.js";
+import { getCookie } from "./utils/cookies.js";
+
+const tokenJwt = getCookie("token");
+
+console.log(tokenJwt);
 
 const listDocuments = document.getElementById("lista-documentos");
 const form = document.getElementById("form-adiciona-documento");

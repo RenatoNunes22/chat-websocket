@@ -1,8 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const client = new MongoClient(
-  "mongodb+srv://admin:admin@socketcluster.8z6scfi.mongodb.net/"
-);
+const client = new MongoClient(process.env.MONGO_URI);
 
 let documentCollection;
 let userCollection;

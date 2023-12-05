@@ -6,6 +6,10 @@ export function seachUser(user) {
 }
 
 export function registerUser({ user, pass }) {
-  const { hashPass, password } = hashPassword(pass);
-  return userCollection.insertOne({ name: user, password: hashPass, password });
+  const { hashPass, salPass } = hashPassword(pass);
+  return userCollection.insertOne({
+    name: user,
+    password: hashPass,
+    salPassword: salPass,
+  });
 }
